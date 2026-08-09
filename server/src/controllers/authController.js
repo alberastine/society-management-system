@@ -12,7 +12,6 @@ export const register = async (req, res) => {
       email,
       mobileNumber,
       password,
-      role,
     } = req.body;
 
     if (
@@ -20,8 +19,7 @@ export const register = async (req, res) => {
       !firstName ||
       !lastName ||
       !email ||
-      !password ||
-      !role
+      !password
     ) {
       return res.status(400).json({
         success: false,
@@ -58,7 +56,9 @@ export const register = async (req, res) => {
       email: email.toLowerCase(),
       mobileNumber,
       password: hashedPassword,
-      role,
+
+      // Public registration always creates a resident.
+      role: "RESIDENT",
     });
 
     res.status(201).json({
