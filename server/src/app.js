@@ -1,4 +1,5 @@
 import societyRoutes from "./routes/societyRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 import dotenv from "dotenv";
 import express from "express";
@@ -27,5 +28,6 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/societies", societyRoutes);
+app.use("/api/auth", authRoutes);
 
 export default app;
