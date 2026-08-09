@@ -1,3 +1,5 @@
+import societyRoutes from "./routes/societyRoutes.js";
+
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
@@ -23,5 +25,7 @@ app.get("/api/health", (req, res) => {
     message: "Society Management API is running",
   });
 });
+
+app.use("/api/societies", societyRoutes);
 
 export default app;
